@@ -1,0 +1,20 @@
+[package]
+name = "crawler"
+version = "0.1.0"
+authors = ["Sylvain Kerkour <sylvain@kerkour.fr>"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+clap = "2.33"
+tokio = { version = "1", features = ["full"] }
+reqwest = { version = "0.11", default-features = false, features = ["json", "rustls-tls"] }
+url = "2.2.2"
+linkify = "0.8.1"
+
+[profile.release]
+debug = 1
+
+[rust]
+debuginfo-level = 1
