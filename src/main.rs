@@ -53,7 +53,7 @@ async fn gen_url(client: Client) {
                     println!("Count: {}/238,328", num);
                 } else if response.status().as_str() != "404"{
                     println!("sleeping");
-                    sleep(Duration::from_secs(12)).await;
+                    sleep(Duration::from_secs(30)).await;
 
                 }
 
