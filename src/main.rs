@@ -14,7 +14,7 @@ use url::Url;
 async fn main() {
     let client = Client::new();
 
-    genURL(client).await;
+    gen_url(client).await;
 }
 
 async fn get_html() -> Result<(String), Box<dyn std::error::Error>> {
