@@ -43,7 +43,7 @@ async fn do_thing(input: String, requester: &Client) {
         if a != None {
             parse_and_write(a.unwrap()).await;
         }
-        sleep(Duration::from_millis(150)).await;
+        sleep(Duration::from_millis(150)).await; //sleepy because rust is too blazingly🚀🔥🚀🔥🚀🚀🔥 fast
     } else if response.status().as_str() != "404" {
         println!("sleeping");
         sleep(Duration::from_secs(30)).await;
@@ -56,7 +56,7 @@ async fn parse_and_write(data: String) {
     let mut file = File::options().append(true).open("urls.txt").unwrap();
     for i in links {
         let mut dat = i.as_str().as_bytes().to_vec();
-        dat.push(0x0au8);
+        dat.push(0x0au8); // new line character in bytes
         file.write_all(&*dat).expect("TODO: panic message");
     }
 }
