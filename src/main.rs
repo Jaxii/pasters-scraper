@@ -39,8 +39,10 @@ async fn main() {
 async fn do_thing(input: String, requester: &Client) {
     let response = requester.get(input).send().await.unwrap();
     if response.status() == StatusCode::OK {
-        let a = response.text().await.ok().expect("wtf?");
-        parse_and_write(a).await;
+        let a: Option<String> = response.text().await.ok();
+        if a != None {
+            parse_and_write(a.unwrap()).await;
+        }
         sleep(Duration::from_millis(150)).await;
     } else if response.status().as_str() != "404" {
         println!("sleeping");
